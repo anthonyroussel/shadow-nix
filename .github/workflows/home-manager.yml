@@ -7,7 +7,7 @@ jobs:
         env:
             NIXPKGS_ALLOW_UNFREE: 1
         steps:
-            - uses: actions/checkout@v2.3.4
+            - uses: actions/checkout@v3
             - uses: cachix/install-nix-action@v12
               with:
                   nix_path: nixpkgs=channel:nixos-21.05:/home/runner/.nix-defexpr/channels
@@ -32,7 +32,7 @@ jobs:
         env:
             NIXPKGS_ALLOW_UNFREE: 1
         steps:
-            - uses: actions/checkout@v2.3.4
+            - uses: actions/checkout@v3
             - uses: cachix/install-nix-action@v12
               with:
                   nix_path: nixpkgs=channel:nixos-21.05:/home/runner/.nix-defexpr/channels
