@@ -1,5 +1,11 @@
 # Changelog
 
+### Version 1.0.4
+
+- Add missing libpulseaudio, libvdpau, libcurl & libxshfence build dependencies (#3)
+- Run tests against Nixpkgs 21.11 (#4)
+
+
 ### Version 1.0.3
 
 - Fix the 2 new dependencies: `xcb-image` and `xcb-render-util`.
