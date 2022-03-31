@@ -4,7 +4,7 @@
 , xorg, alsaLib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
 , nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
 , pulseaudio, libGL, dbus, libnghttp2, libidn2, libpsl, libkrb5, openldap
-, rtmpdump, libinput, mesa
+, rtmpdump, libinput, mesa, libpulseaudio, libvdpau, curl
 
 , enableDiagnostics ? false, extraClientParameters ? []
 , shadowChannel ? "prod", desktopLauncher ? true }:
@@ -43,6 +43,7 @@ in stdenv.mkDerivation rec {
     xorg.libXtst
     xorg.xcbutilimage
     xorg.xcbutilrenderutil
+    xorg.libxshmfence
 
     cairo
     pango
@@ -69,6 +70,9 @@ in stdenv.mkDerivation rec {
     openldap
     rtmpdump
     mesa
+    libpulseaudio
+    libvdpau
+    curl
   ];
 
   # Mandatory libraries for the runtime
