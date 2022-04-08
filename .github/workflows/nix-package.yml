@@ -1,25 +1,25 @@
 name: "Package Build"
 on:
-    pull_request:
+  pull_request:
 jobs:
-    package-21-11:
-        runs-on: ubuntu-latest
-        env:
-            NIXPKGS_ALLOW_UNFREE: 1
-        steps:
-            - uses: actions/checkout@v3
-            - uses: cachix/install-nix-action@v17
-              with:
-                  nix_path: nixpkgs=channel:nixos-21.11
-            - run: nix-shell .github/shadow-packages.nix
+  package-21-11:
+    runs-on: ubuntu-latest
+    env:
+      NIXPKGS_ALLOW_UNFREE: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v17
+        with:
+          nix_path: nixpkgs=channel:nixos-21.11
+      - run: nix-shell .github/shadow-packages.nix
 
-    package-unstable:
-        runs-on: ubuntu-latest
-        env:
-            NIXPKGS_ALLOW_UNFREE: 1
-        steps:
-            - uses: actions/checkout@v3
-            - uses: cachix/install-nix-action@v17
-              with:
-                  nix_path: nixpkgs=channel:nixos-unstable
-            - run: nix-shell .github/shadow-packages.nix
+  package-unstable:
+    runs-on: ubuntu-latest
+    env:
+      NIXPKGS_ALLOW_UNFREE: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v17
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: nix-shell .github/shadow-packages.nix

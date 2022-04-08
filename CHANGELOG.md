@@ -36,7 +36,7 @@ The goal of this version was to simply the code, reorganize it to make it more r
 
 - Adding direct access to the renderer
 - Adding CI to check the package integrity
-- Adding more documentation 
+- Adding more documentation
 - Cleaning all the code
 - Refactoring some features
 - Moving imports to the dedicated folder

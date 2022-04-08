@@ -7,24 +7,24 @@ let
 
   # Declare the package with the appropriate configuration
   shadow-package = pkgs.callPackage ../default.nix {
-    shadowChannel = packageCfg.channel;
+    channel = packageCfg.channel;
     enableDiagnostics = packageCfg.enableDiagnostics;
-    desktopLauncher = packageCfg.enableDesktopLauncher;
+    enableDesktopLauncher = packageCfg.enableDesktopLauncher;
   };
 
   # Declare the wrapper with the appropriate configuration
   shadow-wrapped = pkgs.callPackage ../x-session/wrapper.nix {
     shadow-package = shadow-package;
 
-    shadowChannel = packageCfg.channel;
+    channel = packageCfg.channel;
     provideSession = cfg.enable;
     launchArgs = packageCfg.launchArgs;
 
     menuOverride = sessionCfg.additionalMenuEntries;
     customStartScript = sessionCfg.startScript;
   };
-in
-{
+
+in {
   imports = [ ./config.nix ];
 
   systemd.services.shadow-tech = lib.mkIf cfg.enable {

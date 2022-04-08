@@ -14,7 +14,7 @@ in writeText "obconfig.xml" ''
   <openbox_menu xmlns="http://openbox.org/3.4/menu">
     <menu id="root-menu" label="ShadowOS">
       <separator label="Applications" />
-      
+
       ${lib.strings.concatStringsSep "\n" (lib.attrsets.mapAttrsToList menuItem menu)}
 
       <separator />

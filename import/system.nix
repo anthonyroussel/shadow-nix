@@ -9,13 +9,14 @@ let
 
   # Declare the package with the appropriate configuration
   shadow-package = channel: pkgs.callPackage ../default.nix {
-    shadowChannel = channel;
+    channel = channel;
     enableDiagnostics = cfg.enableDiagnostics;
-    desktopLauncher = cfg.enableDesktopLauncher;
+    enableDesktopLauncher = cfg.enableDesktopLauncher;
   };
 
   # Drirc file
   drirc = utilities.files.drirc;
+
 in {
   # Import the configuration
   imports = [ ../config.nix ../x-session ../systemd-session ];
@@ -26,10 +27,10 @@ in {
   # Enables
   environment = lib.mkIf cfg.enable {
     # Install Shadow wrapper
-    systemPackages = with pkgs; [ 
+    systemPackages = with pkgs; [
       (shadow-package cfg.channel)
-      libva-utils 
-      libva 
+      libva-utils
+      libva
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes

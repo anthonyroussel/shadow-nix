@@ -1,13 +1,14 @@
-let 
+let
   # Import package
-  pkgs = import <nixpkgs> {};
+  pkgs = import <nixpkgs> { };
 
   # Call package for the channel
   package = channel: pkgs.callPackage ../default.nix {
-    shadowChannel = channel;
+    channel = channel;
     enableDiagnostics = true;
-    desktopLauncher = true;
+    enableDesktopLauncher = true;
   };
+
 in pkgs.mkShell {
   buildInputs = [
     (package "prod")
