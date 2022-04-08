@@ -1,0 +1,25 @@
+name: Update upstream-info.json
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-upstream-info:
+    name: Update Upstream information
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Update Upstream informations
+        run: ./scripts/update-upstream-info.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
+          commit-message: "Update upstream-info.json"
+          title: "Update upstream-info.json"

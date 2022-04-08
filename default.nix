@@ -29,12 +29,15 @@ let
   utilities = (import ./utilities { inherit lib pkgs; });
 
   # Latest release information
-  info = utilities.shadowApi.getLatestInfo channel;
+  upstream-info = (lib.importJSON ./upstream-info.json).${channel};
 
 in stdenv.mkDerivation rec {
   pname = "shadow-${channel}";
-  version = info.version;
-  src = fetchurl (utilities.shadowApi.getDownloadInfo info);
+  version = upstream-info.version;
+  src = fetchurl {
+    url = "https://update.shadow.tech/launcher/${channel}/linux/ubuntu_18.04/${upstream-info.path}";
+    hash = "sha512-${upstream-info.sha512}";
+  };
   binaryName = (if channel == "prod" then "shadow" else "shadow-${channel}");
 
   # Add all hooks
