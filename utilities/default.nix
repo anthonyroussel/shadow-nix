@@ -8,9 +8,8 @@
 let
   # Import library method
   callLib = path: (import path { inherit lib pkgs; });
-in
-{
-    shadowApi = callLib ./shadow-api.nix;
-    debug = callLib ./debug.nix;
-    files = callLib ./files.nix;
+in {
+  shadowApi = callLib ./shadow-api.nix;
+  debug = callLib ./debug.nix;
+  files = callLib ./files.nix;
 }

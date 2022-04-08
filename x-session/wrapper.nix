@@ -5,14 +5,14 @@
 , menuOverride ? null
 , customStartScript ? ""
 
-, provideSession ? false, shadowChannel ? "preprod"
+, provideSession ? false, channel ? "preprod"
 , launchArgs ? "" }:
 
 with lib;
 
 let
   sessionCommandWrapperSubCmd =
-    writeShellScriptBin "shadow-${shadowChannel}-session-subcmd" ''
+    writeShellScriptBin "shadow-${channel}-session-subcmd" ''
       set -o errexit
 
       # Hook a script
@@ -24,37 +24,38 @@ let
       # Display a beautiful wallpaper
       ${feh}/bin/feh --bg-scale ${../assets/images/background.png}
 
-      exec ${shadow-package}/bin/shadow-${shadowChannel} "$@"
+      exec ${shadow-package}/bin/shadow-${channel} "$@"
     '';
 
   sessionCommandWrapper =
     let
       menuFile = (callPackage ./openbox/obmenu.nix {
         menu = (if menuOverride != null then menuOverride else {
-          "Shadow" = "${shadow-package}/bin/shadow-${shadowChannel}";
+          "Shadow" = "${shadow-package}/bin/shadow-${channel}";
           "Sound" = "${pavucontrol}/bin/pavucontrol";
           "Terminal" = "${alacritty}/bin/alacritty";
         });
       });
       obConfigFile = (callPackage ./openbox/obconfig.nix { inherit menuFile; });
-    in writeShellScriptBin "shadow-${shadowChannel}-session" ''
+    in writeShellScriptBin "shadow-${channel}-session" ''
       set -o errexit
 
       exec ${openbox}/bin/openbox --config-file ${obConfigFile} \
-        --startup ${sessionCommandWrapperSubCmd}/bin/shadow-${shadowChannel}-session-subcmd
+        --startup ${sessionCommandWrapperSubCmd}/bin/shadow-${channel}-session-subcmd
     '';
 
-  sessionBinaryName = "shadow-${shadowChannel}-standalone-session";
+  sessionBinaryName = "shadow-${channel}-standalone-session";
 
   standaloneSessionCommandWrapper =
     writeShellScriptBin sessionBinaryName ''
       set -o errexit
-      exec ${xorg.xinit}/bin/startx ${sessionCommandWrapper}/bin/shadow-${shadowChannel}-session "$@"
+      exec ${xorg.xinit}/bin/startx ${sessionCommandWrapper}/bin/shadow-${channel}-session "$@"
     '';
+
 in symlinkJoin {
   inherit sessionBinaryName;
 
-  name = "shadow-${shadowChannel}-${shadow-package.version}";
+  name = "shadow-${channel}-${shadow-package.version}";
 
   paths = [ shadow-package ] ++ (optional provideSession [
     sessionCommandWrapper
@@ -65,9 +66,9 @@ in symlinkJoin {
 
   postBuild = optionalString provideSession ''
     mkdir -p $out/share/xsessions
-    substitute ${shadow-package}/opt/shadow-${shadowChannel}/${shadow-package.binaryName}.desktop \
+    substitute ${shadow-package}/opt/shadow-${channel}/${shadow-package.binaryName}.desktop \
       $out/share/xsessions/${shadow-package.binaryName}.desktop \
-      --replace "Exec=AppRun" "Exec=$out/bin/shadow-${shadowChannel}-session"
+      --replace "Exec=AppRun" "Exec=$out/bin/shadow-${channel}-session"
   '';
 
   passthru.providedSessions = [ shadow-package.binaryName ];

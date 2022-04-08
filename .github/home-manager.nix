@@ -2,8 +2,7 @@
 
 let
   repository = /home/runner/work/shadow-nix/shadow-nix;
-in
-{
+in {
   imports = [
     (repository + "/import/home-manager.nix")
   ];

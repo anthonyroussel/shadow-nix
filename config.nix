@@ -20,7 +20,7 @@ with lib;
 
     extraChannels = mkOption {
       type = types.listOf (types.enum [ "prod" "preprod" "testing" ]);
-      default = [];
+      default = [ ];
       example = [ "preprod" "testing" ];
       description = ''
         Choose extra channels to install aside from the main channel

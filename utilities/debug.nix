@@ -4,9 +4,9 @@
 rec {
   /* Wrap the renderer to capture debug logs
 
-     Example:
-       wrapRenderer "preprod"
-       => (string)
+    Example:
+    wrapRenderer "preprod"
+    => (string)
   */
   wrapRenderer = channel: ''
     mv $out/opt/shadow-${channel}/resources/app.asar.unpacked/release/native/Shadow \
