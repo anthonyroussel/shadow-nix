@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.0.5
+
+- Fix icon path in Shadow's XDG Desktop entry (#7)
+
+
 ### Version 1.0.4
 
 - Add missing libpulseaudio, libvdpau, libcurl & libxshfence build dependencies (#3)
