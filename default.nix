@@ -1,4 +1,4 @@
-{ stdenv, lib, pkgs, runCommand, yq, jq, fetchurl, makeWrapper, autoPatchelfHook
+{ stdenv, lib, pkgs, runCommand, fetchurl, makeWrapper, autoPatchelfHook
 , wrapGAppsHook, zlib, runtimeShell
 
 , xorg, alsaLib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
