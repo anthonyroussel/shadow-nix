@@ -19,7 +19,9 @@ rec {
   getLatestInfo = channel: 
     let
         yamlInfo = builtins.fetchurl "https://storage.googleapis.com/shadow-update/launcher/${channel}/linux/ubuntu_18.04/latest-linux.yml";
-        jsonInfo = (pkgs.runCommand "transform" { buildInputs = with pkgs; [ yq jq ]; } "cat ${yamlInfo} | yq -j . > $out");
+        jsonInfo = (pkgs.runCommand "transform" {
+          buildInputs = [ pkgs.remarshal ];
+        } "cat ${yamlInfo} | yaml2json - > $out");
         info = builtins.fromJSON (builtins.readFile jsonInfo);
     in
     { 
