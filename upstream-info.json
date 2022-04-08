@@ -1,0 +1,44 @@
+{
+  "prod": {
+    "version": "5.0.1092",
+    "files": [
+      {
+        "url": "Shadow-5.0.1092.AppImage",
+        "sha512": "XYeIcfdfo4pGePVuUhJyscs3igUqnQ89NofeSviE97FF1gzhlFofcFQhlJVt2Nb4B3vmFsCCJyTSw7UDZkJ12Q==",
+        "size": 176699618,
+        "blockMapSize": 182518
+      }
+    ],
+    "path": "Shadow-5.0.1092.AppImage",
+    "sha512": "XYeIcfdfo4pGePVuUhJyscs3igUqnQ89NofeSviE97FF1gzhlFofcFQhlJVt2Nb4B3vmFsCCJyTSw7UDZkJ12Q==",
+    "releaseDate": "2022-03-29T13:53:05.571Z"
+  },
+  "preprod": {
+    "version": "5.0.1090",
+    "files": [
+      {
+        "url": "ShadowBeta-5.0.1090.AppImage",
+        "sha512": "U6TZx1icb6P7GJ49WHL/p6Ja0biYQUgd64CGb65gyY5mukTdptj2cfihYsI4Keo8Ve7gnIQvqAYIHl2he7lygg==",
+        "size": 176749096,
+        "blockMapSize": 182844
+      }
+    ],
+    "path": "ShadowBeta-5.0.1090.AppImage",
+    "sha512": "U6TZx1icb6P7GJ49WHL/p6Ja0biYQUgd64CGb65gyY5mukTdptj2cfihYsI4Keo8Ve7gnIQvqAYIHl2he7lygg==",
+    "releaseDate": "2022-03-24T14:32:36.710Z"
+  },
+  "testing": {
+    "version": "5.0.1089",
+    "files": [
+      {
+        "url": "ShadowAlpha-5.0.1089.AppImage",
+        "sha512": "fub8feAEbMSRt6NgUN1oMbg9Oq3D9QfOq4Rqo5imUlCgwcMeo8/FXW1Nm6/pEzQImSX02PI742uVCtDBRoIRFA==",
+        "size": 176646134,
+        "blockMapSize": 182282
+      }
+    ],
+    "path": "ShadowAlpha-5.0.1089.AppImage",
+    "sha512": "fub8feAEbMSRt6NgUN1oMbg9Oq3D9QfOq4Rqo5imUlCgwcMeo8/FXW1Nm6/pEzQImSX02PI742uVCtDBRoIRFA==",
+    "releaseDate": "2022-03-21T16:12:10.358Z"
+  }
+}

@@ -14,7 +14,9 @@ with lib;
       example = "preprod";
       description = ''
         Choose a channel for the Shadow application.
-        `prod` is the stable channel, `preprod` is the beta channel. `testing` is the alpha channel.
+        `prod` is the stable channel,
+        `pre-prod` is the beta channel,
+        `testing` is the alpha channel.
       '';
     };
 
