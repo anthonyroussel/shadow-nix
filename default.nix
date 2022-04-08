@@ -4,10 +4,9 @@
 , autoPatchelfHook, wrapGAppsHook, makeWrapper
 
 # Build inputs
-, zlib, xorg, alsaLib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
-, nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
-, pulseaudio, libGL, dbus, libnghttp2, libidn2, libpsl, libkrb5, openldap
-, rtmpdump, libinput, mesa, libpulseaudio, libvdpau, curl
+, zlib, xorg, alsaLib, libbsd, libva, pango, cairo, nspr, nss, cups
+, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd, pulseaudio
+, libGL, dbus, libpsl, libinput, mesa, libpulseaudio, libvdpau, curl, xcbutilcursor
 
 # Which distribution channel to use.
 , channel ? "prod"
@@ -58,20 +57,15 @@ in stdenv.mkDerivation rec {
     xorg.libXfixes
     xorg.libXi
     xorg.libXtst
-    xorg.xcbutilimage
-    xorg.xcbutilrenderutil
     xorg.libxshmfence
 
     cairo
     pango
     alsaLib
     libbsd
-    libopus
     libinput
-    openssl
     libva
     zlib
-    libuuid
     nspr
     nss
     cups
@@ -80,16 +74,12 @@ in stdenv.mkDerivation rec {
     at-spi2-atk
     gtk3
     gdk-pixbuf
-    libnghttp2
-    libidn2
     libpsl
-    libkrb5
-    openldap
-    rtmpdump
     mesa
     libpulseaudio
     libvdpau
     curl
+    xcbutilcursor
   ];
 
   # Mandatory libraries for the runtime
