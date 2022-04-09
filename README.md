@@ -170,3 +170,11 @@ As a reminder, all contributors are expected to follow our [Code of Conduct](COD
 ## 7. Mentions
 
 This repository was originally created and maintained by [Elyhaka](https://github.com/Elyhaka) and [NicolasGuilloux](https://github.com/NicolasGuilloux). A big thanks to them for helping me learning Nix!
+
+## ✨ Contributors
+
+<a href="https://github.com/anthonyroussel/shadow-nix/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=anthonyroussel/shadow-nix" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
