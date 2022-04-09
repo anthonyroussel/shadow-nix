@@ -1,14 +1,15 @@
 # Shadow on NixOS
 
-> :warning: Since I canceled my subscription, I am no longer able to maintain this package. If somebody wants to continue the maintenance, feel free to fork or [contact me](mailto:nicolas.guilloux@protonmail.com)
-
-![Package build](https://github.com/NicolasGuilloux/shadow-nix/workflows/Package%20build/badge.svg)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/NicolasGuilloux/shadow-nix/issues)
+[![Package Build](https://github.com/anthonyroussel/shadow-nix/actions/workflows/nix-package.yml/badge.svg)](https://github.com/anthonyroussel/shadow-nix/actions/workflows/nix-package.yml)
+[![Home Manager import](https://github.com/anthonyroussel/shadow-nix/actions/workflows/home-manager.yml/badge.svg)](https://github.com/anthonyroussel/shadow-nix/actions/workflows/home-manager.yml)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/anthonyroussel/shadow-nix/issues)
 [![License](https://img.shields.io/badge/license-Unlicense-blue.png)](LICENSE)
 
 The goal of this project is to provide Shadow on NixOS with a dynamic derivation to handle frequent updates.
 
-**This project is not affiliated with Blade, the company providing Shadow, in any way.**
+This repository is a fork of the great work of [NicolasGuilloux](https://github.com/NicolasGuilloux) & [Elyhaka](https://github.com/Elyhaka) on the [Shadow on NixOS](https://github.com/NicolasGuilloux/shadow-nix) project. The purpose of this fork is to continue to maintain this project with the latest NixOS & Shadow versions.
+
+**:warning: This project is not affiliated with Blade, the company providing Shadow, in any way.**
 
 ![Shadow loves Nix](./assets/images/shadow_loves_nix.svg)
 
@@ -156,9 +157,9 @@ Versions bellow 1.0.0 are considered experimental and breaking changes may occur
 
 Contributions are welcomed! There are many ways to contribute, and we appreciate all of them. Here are some of the major ones:
 
-* [Bug Reports](https://github.com/NicolasGuilloux/shadow-nix/issues): While we strive for quality software, bugs can happen and we can't fix issues we're not aware of. So please report even if you're not sure about it or just want to ask a question. If anything the issue might indicate that the documentation can still be improved!
-* [Feature Request](https://github.com/NicolasGuilloux/shadow-nix/issues): You have a use case not covered by the current api? Want to suggest a change or add something? We'd be glad to read about it and start a discussion to try to find the best possible solution.
-* [Pull Request](https://github.com/NicolasGuilloux/shadow-nix/merge_requests): Want to contribute code or documentation? We'd love that! If you need help to get started, GitHub as [documentation](https://help.github.com/articles/about-pull-requests/) on pull requests. We use the ["fork and pull model"](https://help.github.com/articles/about-collaborative-development-models/) were contributors push changes to their personnal fork and then create pull requests to the main repository. Please make your pull requests against the `master` branch.
+* [Bug Reports](https://github.com/anthonyroussel/shadow-nix/issues): While we strive for quality software, bugs can happen and we can't fix issues we're not aware of. So please report even if you're not sure about it or just want to ask a question. If anything the issue might indicate that the documentation can still be improved!
+* [Feature Request](https://github.com/anthonyroussel/shadow-nix/issues): You have a use case not covered by the current api? Want to suggest a change or add something? We'd be glad to read about it and start a discussion to try to find the best possible solution.
+* [Pull Request](https://github.com/anthonyroussel/shadow-nix/merge_requests): Want to contribute code or documentation? We'd love that! If you need help to get started, GitHub as [documentation](https://help.github.com/articles/about-pull-requests/) on pull requests. We use the ["fork and pull model"](https://help.github.com/articles/about-collaborative-development-models/) were contributors push changes to their personnal fork and then create pull requests to the main repository. Please make your pull requests against the `master` branch.
 
 As a reminder, all contributors are expected to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -168,4 +169,4 @@ As a reminder, all contributors are expected to follow our [Code of Conduct](COD
 
 ## 7. Mentions
 
-This repository was originally created and maintained by [Elyhaka](https://github.com/Elyhaka). A big thanks to him for helping me learning Nix!
+This repository was originally created and maintained by [Elyhaka](https://github.com/Elyhaka) and [NicolasGuilloux](https://github.com/NicolasGuilloux). A big thanks to them for helping me learning Nix!
