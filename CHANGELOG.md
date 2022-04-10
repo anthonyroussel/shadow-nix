@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.0.6
+
+- Purify Shadow on Nix for Nix flakes and reproducible & immutable builds (#11)
+
+
 ### Version 1.0.5
 
 - Fix icon path in Shadow's XDG Desktop entry (#7)
