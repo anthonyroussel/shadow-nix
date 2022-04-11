@@ -1,13 +1,4 @@
-{ stdenv, lib, pkgs, fetchurl
-
-# Native build inputs
-, autoPatchelfHook, wrapGAppsHook, makeWrapper
-
-# Build inputs
-, zlib, xorg, alsaLib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
-, nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
-, pulseaudio, libGL, dbus, libnghttp2, libidn2, libpsl, libkrb5, openldap
-, rtmpdump, libinput, mesa, libpulseaudio, libvdpau, curl
+{ stdenv, lib, pkgs, nixpkgs, blade-shadow-beta, fetchurl
 
 # Which distribution channel to use.
 , channel ? "prod"
@@ -41,14 +32,14 @@ in stdenv.mkDerivation rec {
   binaryName = (if channel == "prod" then "shadow" else "shadow-${channel}");
 
   # Add all hooks
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     autoPatchelfHook
     wrapGAppsHook
     makeWrapper
   ];
 
   # Useful libraries to build the package
-  buildInputs = [
+  buildInputs = with pkgs; [
     stdenv.cc.cc.lib
 
     xorg.libX11
@@ -96,7 +87,7 @@ in stdenv.mkDerivation rec {
   ];
 
   # Mandatory libraries for the runtime
-  runtimeDependencies = [
+  runtimeDependencies = with pkgs; [
     stdenv.cc.cc.lib
     systemd
     libinput
@@ -115,7 +106,7 @@ in stdenv.mkDerivation rec {
 
     patchelf \
       --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-      --replace-needed libz.so.1 ${zlib}/lib/libz.so.1 \
+      --replace-needed libz.so.1 ${pkgs.zlib}/lib/libz.so.1 \
       ./Shadow.AppImage
 
     ./Shadow.AppImage --appimage-extract
@@ -131,7 +122,7 @@ in stdenv.mkDerivation rec {
       mv ./squashfs-root/usr/share $out/
       mkdir -p $out/share/applications
 
-      ln -s ${lib.getLib systemd}/lib/libudev.so.1 $out/lib/libudev.so.1
+      ln -s ${lib.getLib pkgs.systemd}/lib/libudev.so.1 $out/lib/libudev.so.1
       rm -r ./squashfs-root/usr/lib
       rm ./squashfs-root/AppRun
       mv ./squashfs-root $out/opt/shadow-${channel}

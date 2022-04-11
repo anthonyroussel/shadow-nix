@@ -1,3 +1,6 @@
 # IDE
 .vscode
 .idea
+
+# Nix flake
+/result
