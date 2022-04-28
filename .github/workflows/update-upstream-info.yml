@@ -3,7 +3,7 @@ name: Update upstream-info.json
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */4 * * *'
 
 jobs:
   update-upstream-info:
