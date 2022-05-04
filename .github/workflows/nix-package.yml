@@ -1,6 +1,13 @@
 name: "Package Build"
+
 on:
   pull_request:
+    branches:
+    - master
+  push:
+    branches:
+    - master
+
 jobs:
   package-21-11:
     runs-on: ubuntu-latest

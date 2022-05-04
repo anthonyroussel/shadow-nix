@@ -1,6 +1,13 @@
 name: "Home Manager import"
+
 on:
   pull_request:
+    branches:
+    - master
+  push:
+    branches:
+    - master
+
 jobs:
   home-manager-21-11:
     runs-on: ubuntu-latest
