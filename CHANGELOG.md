@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.1.0
+
+- Upgrade release from testing channel from v5.0.1089 to v5.0.1106 (#12)
+
+
 ### Version 1.0.6
 
 - Purify Shadow on Nix for Nix flakes and reproducible & immutable builds (#11)
