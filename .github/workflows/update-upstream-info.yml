@@ -23,3 +23,5 @@ jobs:
           author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
           commit-message: "Update upstream-info.json"
           title: "Update upstream-info.json"
+          assignees: "anthonyroussel"
+          reviewers: "anthonyroussel"
