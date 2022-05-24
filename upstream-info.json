@@ -14,18 +14,18 @@
     "releaseDate": "2022-03-29T13:53:05.571Z"
   },
   "preprod": {
-    "version": "5.0.1090",
+    "version": "5.0.1115",
     "files": [
       {
-        "url": "ShadowBeta-5.0.1090.AppImage",
-        "sha512": "U6TZx1icb6P7GJ49WHL/p6Ja0biYQUgd64CGb65gyY5mukTdptj2cfihYsI4Keo8Ve7gnIQvqAYIHl2he7lygg==",
-        "size": 176749096,
-        "blockMapSize": 182844
+        "url": "ShadowBeta-5.0.1115.AppImage",
+        "sha512": "BIA4b59icDbOyxc74ROrSEWtULC3F67xRNn+M6/n+ElgR34Lkyp97FsQ117dlGnELMWlNLkhjuJYvXb/Rv4VHA==",
+        "size": 178112001,
+        "blockMapSize": 185877
       }
     ],
-    "path": "ShadowBeta-5.0.1090.AppImage",
-    "sha512": "U6TZx1icb6P7GJ49WHL/p6Ja0biYQUgd64CGb65gyY5mukTdptj2cfihYsI4Keo8Ve7gnIQvqAYIHl2he7lygg==",
-    "releaseDate": "2022-03-24T14:32:36.710Z"
+    "path": "ShadowBeta-5.0.1115.AppImage",
+    "sha512": "BIA4b59icDbOyxc74ROrSEWtULC3F67xRNn+M6/n+ElgR34Lkyp97FsQ117dlGnELMWlNLkhjuJYvXb/Rv4VHA==",
+    "releaseDate": "2022-05-23T08:04:39.630Z"
   },
   "testing": {
     "version": "5.0.1114",
