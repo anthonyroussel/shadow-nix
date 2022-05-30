@@ -31,6 +31,8 @@ This repository is a fork of the great work of [NicolasGuilloux](https://github.
 
 ## 1. Installation
 
+## Using fetchGit
+
 Note that the ref value (`v*.*.*`) should point to the lastest release. Checkout the tags to know it. The version is the derivation one, not the launcher nor the streamer version. Installing any version of this repository will always install the latest version of the launcher available.
 
 If you want the latest package derivation, use `ref = "main"` instead.
@@ -71,6 +73,36 @@ In your `home.nix` :
 }
 ```
 
+## Using Nix Flakes support
+
+There is also experimental flake support, in your `flake.nix`:
+
+```nix
+{
+  inputs.shadow-nix = {
+    url = "github:anthonyroussel/shadow-nix";
+    flake = false;
+  };
+}
+```
+
+Then import `import/system.nix` file into your Nix configuration:
+
+```nix
+{
+  imports = [
+    "${inputs.shadow-nix}/import/system.nix"
+  ];
+
+  programs.shadow-client = {
+    # Enabled by default when using import
+    # enable = true;
+    channel = "prod";
+  };
+}
+```
+
+
 ## 2. Configuration
 
 #### Package configuration
@@ -78,7 +110,7 @@ In your `home.nix` :
 This is the configuration of the package itself. You can set them via `programs.shadow-client.<key>`.
 
 | Key                   | Type   | Default | Possible values                | Description                                               |
-|-----------------------|--------|---------|--------------------------------|-----------------------------------------------------------|
+| --------------------- | ------ | ------- | ------------------------------ | --------------------------------------------------------- |
 | enable                | bool   | false   | true, false                    | Enable the package                                        |
 | channel               | enum   | prod    | prod, preprod, testing         | `prod` is stable, `preprod` is beta, `testing` is alpha   |
 | extraChannels         | [enum] | []      | [ "prod" "preprod" "testing" ] | `prod` is stable, `preprod` is beta, `testing` is alpha   |
@@ -93,23 +125,23 @@ This is the configuration of the package itself. You can set them via `programs.
 
 This package also provides a standalone session with only the necessary component to start Openbox and Shadow. You can set the configuration via `programs.shadow-client.x-session.<key>`.
 
-| Key                   | Type   | Default | Possible values             | Description                                                |
-|-----------------------|--------|---------|-----------------------------|------------------------------------------------------------|
-| enable                | bool   | false   | true, false                 | Enable the standalone XSession                             |
-| additionalMenuEntries |        | {}      |                             | Additional menu entries for the Openbox right click menu   |
-| startScript           | string |         |                             | Additional start option to be executed when Openbox starts |
+| Key                   | Type   | Default | Possible values | Description                                                |
+| --------------------- | ------ | ------- | --------------- | ---------------------------------------------------------- |
+| enable                | bool   | false   | true, false     | Enable the standalone XSession                             |
+| additionalMenuEntries |        | {}      |                 | Additional menu entries for the Openbox right click menu   |
+| startScript           | string |         |                 | Additional start option to be executed when Openbox starts |
 
 
 #### Systemd session configuration
 
 This package provides a standalone systemd daemon to start only the client wrapped into Xorg in a TTY. You can set the configuration at `programs.shadow-client.systemd-session.<key>`.
 
-| Key          | Type   | Default | Possible values             | Description                                  |
-|--------------|--------|---------|-----------------------------|----------------------------------------------|
-| enable       | bool   | false   | true, false                 | Enable the standalone XSession with Systemd  |
-| user         | string |         |                             | User that will start the session             |
-| tty          | int    | 8       |                             | TTY number where the session will be started |
-| onClosingTty | int    | null    |                             | TTY number that will be selected on closing  |
+| Key          | Type   | Default | Possible values | Description                                  |
+| ------------ | ------ | ------- | --------------- | -------------------------------------------- |
+| enable       | bool   | false   | true, false     | Enable the standalone XSession with Systemd  |
+| user         | string |         |                 | User that will start the session             |
+| tty          | int    | 8       |                 | TTY number where the session will be started |
+| onClosingTty | int    | null    |                 | TTY number that will be selected on closing  |
 
 
 ## 3. About VAAPI
