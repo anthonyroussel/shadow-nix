@@ -9,24 +9,19 @@ on:
     - master
 
 jobs:
-  package-21-11:
+  package-build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel:
+          - nixos-21.11
+          - nixos-22.05
+          - nixos-unstable
     env:
       NIXPKGS_ALLOW_UNFREE: 1
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v17
         with:
-          nix_path: nixpkgs=channel:nixos-21.11
-      - run: nix-shell .github/shadow-packages.nix
-
-  package-unstable:
-    runs-on: ubuntu-latest
-    env:
-      NIXPKGS_ALLOW_UNFREE: 1
-    steps:
-      - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v17
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          nix_path: nixpkgs=channel:${{ matrix.channel }}
       - run: nix-shell .github/shadow-packages.nix

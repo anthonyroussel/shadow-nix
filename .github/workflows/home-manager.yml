@@ -9,49 +9,33 @@ on:
     - master
 
 jobs:
-  home-manager-21-11:
+  home-manager-build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pairs:
+          - branch: release-21.11
+            channel: nixos-21.11
+          - branch: release-22.05
+            channel: nixos-22.05
+          - branch: master
+            channel: nixos-unstable
     env:
       NIXPKGS_ALLOW_UNFREE: 1
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v17
         with:
-          nix_path: nixpkgs=channel:nixos-21.11:/home/runner/.nix-defexpr/channels
+          nix_path: nixpkgs=channel:${{ matrix.pairs.channel }}:/home/runner/.nix-defexpr/channels
 
       - name: Add Home Manager
-        run: nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
+        run: nix-channel --add https://github.com/nix-community/home-manager/archive/${{ matrix.pairs.branch }}.tar.gz home-manager
 
       - name: Update channels
         run: nix-channel --update
 
       - name: Install Home Manager
-        run: nix-shell 'https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz' -A install
-
-      - name: Copy configuration file
-        run: cp -f .github/home-manager.nix /home/runner/.config/nixpkgs/home.nix
-
-      - name: Rebuild Home Manager configuration
-        run: home-manager switch --show-trace
-
-  home-manager-unstable:
-    runs-on: ubuntu-latest
-    env:
-      NIXPKGS_ALLOW_UNFREE: 1
-    steps:
-      - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v17
-        with:
-          nix_path: nixpkgs=channel:nixos-21.11:/home/runner/.nix-defexpr/channels
-
-      - name: Add Home Manager
-        run: nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
-
-      - name: Update channels
-        run: nix-channel --update
-
-      - name: Install Home Manager
-        run: nix-shell 'https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz' -A install
+        run: nix-shell 'https://github.com/nix-community/home-manager/archive/${{ matrix.pairs.branch }}.tar.gz' -A install
 
       - name: Copy configuration file
         run: cp -f .github/home-manager.nix /home/runner/.config/nixpkgs/home.nix
