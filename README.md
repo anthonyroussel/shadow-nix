@@ -33,7 +33,7 @@ This repository is a fork of the great work of [NicolasGuilloux](https://github.
 
 Note that the ref value (`v*.*.*`) should point to the lastest release. Checkout the tags to know it. The version is the derivation one, not the launcher nor the streamer version. Installing any version of this repository will always install the latest version of the launcher available.
 
-If you want the latest package derivation, use `ref = "master"` instead.
+If you want the latest package derivation, use `ref = "main"` instead.
 
 #### As a system package
 
@@ -159,7 +159,7 @@ Contributions are welcomed! There are many ways to contribute, and we appreciate
 
 * [Bug Reports](https://github.com/anthonyroussel/shadow-nix/issues): While we strive for quality software, bugs can happen and we can't fix issues we're not aware of. So please report even if you're not sure about it or just want to ask a question. If anything the issue might indicate that the documentation can still be improved!
 * [Feature Request](https://github.com/anthonyroussel/shadow-nix/issues): You have a use case not covered by the current api? Want to suggest a change or add something? We'd be glad to read about it and start a discussion to try to find the best possible solution.
-* [Pull Request](https://github.com/anthonyroussel/shadow-nix/merge_requests): Want to contribute code or documentation? We'd love that! If you need help to get started, GitHub as [documentation](https://help.github.com/articles/about-pull-requests/) on pull requests. We use the ["fork and pull model"](https://help.github.com/articles/about-collaborative-development-models/) were contributors push changes to their personnal fork and then create pull requests to the main repository. Please make your pull requests against the `master` branch.
+* [Pull Request](https://github.com/anthonyroussel/shadow-nix/merge_requests): Want to contribute code or documentation? We'd love that! If you need help to get started, GitHub as [documentation](https://help.github.com/articles/about-pull-requests/) on pull requests. We use the ["fork and pull model"](https://help.github.com/articles/about-collaborative-development-models/) were contributors push changes to their personnal fork and then create pull requests to the main repository. Please make your pull requests against the `main` branch.
 
 As a reminder, all contributors are expected to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 

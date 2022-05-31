@@ -3,10 +3,10 @@ name: "Home Manager import"
 on:
   pull_request:
     branches:
-    - master
+    - main
   push:
     branches:
-    - master
+    - main
 
 jobs:
   home-manager-build:
