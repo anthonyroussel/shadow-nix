@@ -1,5 +1,12 @@
 # Changelog
 
+### Version 1.2.0
+
+- Build Shadow on Nix package with NixOS 22.05 (#16)
+- Upgrade preprod from v5.0.1090 to v5.0.1117 (#14, #15)
+- Upgrade testing from v5.0.1106 to v5.0.1114 (#13)
+
+
 ### Version 1.1.0
 
 - Upgrade release from testing channel from v5.0.1089 to v5.0.1106 (#12)

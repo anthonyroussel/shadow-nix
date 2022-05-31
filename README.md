@@ -16,14 +16,14 @@ This repository is a fork of the great work of [NicolasGuilloux](https://github.
 ## Table of content
 
 1. [Installation](#1-installation)
-    - [As a system package](#as-a-system-package)
-    - [As a home-manager package](#as-a-home-manager-package)
+  - [As a system package](#as-a-system-package)
+  - [As a home-manager package](#as-a-home-manager-package)
 2. [Configuration](#2-configuration)
-    - [Package configuration](#package-configuration)
-    - [XSession configuration](#xsession-configuration)
-    - [Systemd session configuration](#systemd-session-configuration)
+  - [Package configuration](#package-configuration)
+  - [XSession configuration](#xsession-configuration)
+  - [Systemd session configuration](#systemd-session-configuration)
 3. [About VAAPI](#3-about-vaapi)
-    - [An example for Intel and AMD GPU](#an-example-for-intel-and-amd-gpu)
+  - [An example for Intel and AMD GPU](#an-example-for-intel-and-amd-gpu)
 4. [Versioning](#4-versioning)
 5. [Contributing](#5-contributing)
 6. [License](#6-license)
@@ -42,7 +42,7 @@ In your `configuration.nix` :
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.1.0"; } + "/import/system.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.2.0"; } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
@@ -60,7 +60,7 @@ In your `home.nix` :
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.1.0"; } + "/import/home-manager.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.2.0"; } + "/import/home-manager.nix")
   ];
 
   programs.shadow-client = {
