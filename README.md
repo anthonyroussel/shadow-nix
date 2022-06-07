@@ -42,7 +42,7 @@ In your `configuration.nix` :
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.2.0"; } + "/import/system.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.3.0"; } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
@@ -60,7 +60,7 @@ In your `home.nix` :
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.2.0"; } + "/import/home-manager.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.3.0"; } + "/import/home-manager.nix")
   ];
 
   programs.shadow-client = {
@@ -151,7 +151,7 @@ The following example should work for both AMD and Intel GPU. This is just an ex
 2. MINOR is bumped when a new feature is added in a backward-compatible way,
 3. PATCH is bumped when a bug is fixed in a backward-compatible way.
 
-Versions bellow 1.0.0 are considered experimental and breaking changes may occur at any time.
+Versions below 1.0.0 are considered experimental and breaking changes may occur at any time.
 
 ## 5. Contributing
 
