@@ -171,7 +171,7 @@ in stdenv.mkDerivation rec {
       substitute $out/opt/shadow-${channel}/${binaryName}.desktop \
         $out/share/applications/${binaryName}.desktop \
         --replace "Exec=AppRun" "Exec=$out/bin/shadow-${channel}" \
-        --replace "Icon=${binaryName}" "Icon=$out/opt/shadow-${channel}/resources/app.asar.unpacked/release/main/assets/icons/shadow.png"
+        --replace "Icon=${binaryName}" "Icon=$out/opt/shadow-${channel}/resources/app.asar.unpacked/release/main/assets/icons/${channel}/${binaryName}.png"
     '';
 
   meta = with lib; {
