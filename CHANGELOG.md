@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.3.1
+
+- Fix bad icon path in Shadow's XDG Desktop entry
+
+
 ### Version 1.3.0
 
 - Upgrade prod from v5.0.1092 to v5.0.1119 (#18)
