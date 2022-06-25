@@ -6,4 +6,9 @@ in {
   imports = [
     (repository + "/import/home-manager.nix")
   ];
+  home = {
+    username = "shadow";
+    homeDirectory = "/home/shadow";
+    stateVersion = "21.11";
+  };
 }
