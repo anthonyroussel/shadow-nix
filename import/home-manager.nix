@@ -33,7 +33,6 @@ in {
       libva
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
-
     # Add GPU fixes
     file.".drirc".source = lib.mkIf (cfg.enableGpuFix) drirc;
 
