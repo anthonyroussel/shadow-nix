@@ -28,17 +28,17 @@
     "releaseDate": "2022-06-14T18:21:12.801Z"
   },
   "testing": {
-    "version": "5.0.1127",
+    "version": "5.0.1132",
     "files": [
       {
-        "url": "ShadowAlpha-5.0.1127.AppImage",
-        "sha512": "WzshJMg+Ha4TepJhUa/e168aRQ5c3+rcMPOfywTFJVNeAjRbrmtEZPZKL5XqzeyDkf51Isr0XGTUrKkaowQ4ZQ==",
-        "size": 178111680,
-        "blockMapSize": 185556
+        "url": "ShadowAlpha-5.0.1132.AppImage",
+        "sha512": "mJZh4HxAl1kRLoBotX5A1GLFkp/4hPfhrVs277G2vu9/tIc93XlKAo74BRVpwDegFe7N/h0RFtImErnTxMmZ5Q==",
+        "size": 178477053,
+        "blockMapSize": 186385
       }
     ],
-    "path": "ShadowAlpha-5.0.1127.AppImage",
-    "sha512": "WzshJMg+Ha4TepJhUa/e168aRQ5c3+rcMPOfywTFJVNeAjRbrmtEZPZKL5XqzeyDkf51Isr0XGTUrKkaowQ4ZQ==",
-    "releaseDate": "2022-06-14T14:40:22.329Z"
+    "path": "ShadowAlpha-5.0.1132.AppImage",
+    "sha512": "mJZh4HxAl1kRLoBotX5A1GLFkp/4hPfhrVs277G2vu9/tIc93XlKAo74BRVpwDegFe7N/h0RFtImErnTxMmZ5Q==",
+    "releaseDate": "2022-06-30T14:21:44.088Z"
   }
 }
