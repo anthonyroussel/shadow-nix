@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         channel:
-          - nixos-21.11
           - nixos-22.05
           - nixos-unstable
     env:
