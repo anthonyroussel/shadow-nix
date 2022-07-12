@@ -1,17 +1,17 @@
 {
   "prod": {
-    "version": "5.0.1129",
+    "version": "5.0.1138",
     "files": [
       {
-        "url": "Shadow-5.0.1129.AppImage",
-        "sha512": "HFwvVn13RRKzYrEd5unuqAUyTxNvXG0u5l+xuXmikM+p0xsZyccSnQWPTs5+QTNzbFIyhmLCDbpckTD11TC+7Q==",
-        "size": 178165015,
-        "blockMapSize": 185643
+        "url": "Shadow-5.0.1138.AppImage",
+        "sha512": "HzHgpK8f/u74SXYO8gAhYgTSWBS+qbnDxyBmPtzc53pqRqYKmGbXI4fP2nHZS9KliXMxFeGqRpYBxt45Jc82QQ==",
+        "size": 178164775,
+        "blockMapSize": 185403
       }
     ],
-    "path": "Shadow-5.0.1129.AppImage",
-    "sha512": "HFwvVn13RRKzYrEd5unuqAUyTxNvXG0u5l+xuXmikM+p0xsZyccSnQWPTs5+QTNzbFIyhmLCDbpckTD11TC+7Q==",
-    "releaseDate": "2022-06-16T11:57:34.728Z"
+    "path": "Shadow-5.0.1138.AppImage",
+    "sha512": "HzHgpK8f/u74SXYO8gAhYgTSWBS+qbnDxyBmPtzc53pqRqYKmGbXI4fP2nHZS9KliXMxFeGqRpYBxt45Jc82QQ==",
+    "releaseDate": "2022-07-05T16:14:48.426Z"
   },
   "preprod": {
     "version": "5.0.1137",
