@@ -1,5 +1,13 @@
 # Changelog
 
+### Version 1.3.2
+
+- prod: 5.0.1138 -> 5.0.1161 (#55)
+- preprod: 5.0.1153 -> 5.0.1158 (#53)
+- testing: 5.0.1149 -> 5.0.1152 (#46)
+- Remove support for NixOS 21.11
+
+
 ### Version 1.3.1
 
 - Fix bad icon path in Shadow's XDG Desktop entry
