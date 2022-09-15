@@ -22,8 +22,6 @@
 , enableDesktopLauncher ? true
 }:
 
-with lib;
-
 let
   # Import tools
   utilities = (import ./utilities { inherit lib pkgs; });
@@ -138,7 +136,7 @@ in stdenv.mkDerivation rec {
     '' +
 
     # Add debug wrapper
-    optionalString enableDiagnostics (utilities.debug.wrapRenderer channel) +
+    lib.optionalString enableDiagnostics (utilities.debug.wrapRenderer channel) +
 
     # Wrap renderer
     ''
@@ -146,10 +144,10 @@ in stdenv.mkDerivation rec {
         --run "cd $out/opt/shadow-${channel}/resources/app.asar.unpacked/release/native/" \
         --prefix LD_LIBRARY_PATH : "$out/opt/shadow-${channel}" \
         --prefix LD_LIBRARY_PATH : "$out/lib" \
-        --prefix LD_LIBRARY_PATH : ${makeLibraryPath runtimeDependencies} \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeDependencies} \
         --add-flags "--no-usb" \
         --add-flags "--agent \"Linux;x64;Chrome 80.0.3987.165;latest\"" \
-        ${concatMapStrings (x: " --add-flags '" + x + "'") extraClientParameters}
+        ${lib.concatMapStrings (x: " --add-flags '" + x + "'") extraClientParameters}
     ''
 
     # Wrap Renderer into binary
@@ -157,17 +155,17 @@ in stdenv.mkDerivation rec {
       makeWrapper \
         $out/opt/shadow-${channel}/resources/app.asar.unpacked/release/native/Shadow \
         $out/bin/shadow-${channel}-renderer \
-        --prefix LD_LIBRARY_PATH : ${makeLibraryPath runtimeDependencies}
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeDependencies}
     ''
 
     # Wrap launcher
     + ''
       makeWrapper $out/opt/shadow-${channel}/${binaryName} $out/bin/shadow-${channel} \
-        --prefix LD_LIBRARY_PATH : ${makeLibraryPath runtimeDependencies}
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeDependencies}
     ''
 
     # Add Desktop entry
-    + optionalString enableDesktopLauncher ''
+    + lib.optionalString enableDesktopLauncher ''
       substitute $out/opt/shadow-${channel}/${binaryName}.desktop \
         $out/share/applications/${binaryName}.desktop \
         --replace "Exec=AppRun" "Exec=$out/bin/shadow-${channel}" \
@@ -178,6 +176,7 @@ in stdenv.mkDerivation rec {
     description = "Client for the Shadow Cloud Gaming Computer";
     homepage = "https://shadow.tech";
     license = [ licenses.unfree ];
+    maintainers = with maintainers; [ anthonyroussel ];
     platforms = platforms.linux;
   };
 }
