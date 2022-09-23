@@ -3,7 +3,7 @@ name: Update upstream-info.json
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */12 * * *'
 
 jobs:
   update-upstream-info:
@@ -14,14 +14,30 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Update Upstream informations
-        run: ./scripts/update-upstream-info.py
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
         with:
-          author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
-          commit-message: "Update upstream-info.json"
-          title: "Update upstream-info.json"
-          assignees: "anthonyroussel"
-          reviewers: "anthonyroussel"
+          nix_path: nixpkgs=channel:nixos-22.05
+
+      - name: Configure Git author and create branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b update-shadow-channels
+
+      - name: Update Upstream information file
+        run: ./update.py --commit
+
+      - name: Push branch
+        run: git push origin update-shadow-channels -f
+
+      - name: Create pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "update-shadow-channels"
+          destination_branch: "main"
+          pr_title: "Update upstream-info.json"
+          pr_reviewer: "anthonyroussel"
+          pr_assignee: "anthonyroussel"
+          pr_label: "update"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
