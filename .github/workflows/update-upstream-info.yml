@@ -14,8 +14,12 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Update Upstream informations
-        run: ./scripts/update-upstream-info.py
+      - uses: cachix/install-nix-action@v17
+        with:
+          nix_path: nixpkgs=channel:nixpkgs-unstable
+
+      - name: Update Upstream information file
+        run: ./update.py
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4

@@ -172,6 +172,10 @@ in stdenv.mkDerivation rec {
         --replace "Icon=${binaryName}" "Icon=$out/opt/shadow-${channel}/resources/app.asar.unpacked/release/main/assets/icons/${channel}/${binaryName}.png"
     '';
 
+  passthru = {
+    updateScript = ./update.py;
+  };
+
   meta = with lib; {
     description = "Client for the Shadow Cloud Gaming Computer";
     homepage = "https://shadow.tech";
