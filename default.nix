@@ -4,7 +4,7 @@
 , autoPatchelfHook, wrapGAppsHook, makeWrapper
 
 # Build inputs
-, zlib, xorg, alsaLib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
+, zlib, xorg, alsa-lib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
 , nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
 , pulseaudio, libGL, dbus, libnghttp2, libidn2, libpsl, libkrb5, openldap
 , rtmpdump, libinput, mesa, libpulseaudio, libvdpau, curl
@@ -65,7 +65,7 @@ in stdenv.mkDerivation rec {
 
     cairo
     pango
-    alsaLib
+    alsa-lib
     libbsd
     libopus
     libinput
