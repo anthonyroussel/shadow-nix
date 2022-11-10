@@ -29,14 +29,16 @@ let
   # Latest release information
   upstream-info = (lib.importJSON ./upstream-info.json).${channel};
 
+  iconName = (if channel == "prod" then "shadow" else "shadow-${channel}");
+
 in stdenv.mkDerivation rec {
   pname = "shadow-${channel}";
   version = upstream-info.version;
+
   src = fetchurl {
     url = "https://update.shadow.tech/launcher/${channel}/linux/ubuntu_18.04/${upstream-info.path}";
     hash = "sha512-${upstream-info.sha512}";
   };
-  binaryName = (if channel == "prod" then "shadow" else "shadow-${channel}");
 
   # Add all hooks
   nativeBuildInputs = [
@@ -160,16 +162,16 @@ in stdenv.mkDerivation rec {
 
     # Wrap launcher
     + ''
-      makeWrapper $out/opt/shadow-${channel}/${binaryName} $out/bin/shadow-${channel} \
+      makeWrapper $out/opt/shadow-${channel}/shadow-launcher $out/bin/shadow-${channel} \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeDependencies}
     ''
 
     # Add Desktop entry
     + lib.optionalString enableDesktopLauncher ''
-      substitute $out/opt/shadow-${channel}/${binaryName}.desktop \
-        $out/share/applications/${binaryName}.desktop \
+      substitute $out/opt/shadow-${channel}/shadow-launcher.desktop \
+        $out/share/applications/shadow-launcher.desktop \
         --replace "Exec=AppRun" "Exec=$out/bin/shadow-${channel}" \
-        --replace "Icon=${binaryName}" "Icon=$out/opt/shadow-${channel}/resources/app.asar.unpacked/release/main/assets/icons/${channel}/${binaryName}.png"
+        --replace "Icon=shadow-launcher" "Icon=$out/opt/shadow-${channel}/resources/app.asar.unpacked/release/main/assets/icons/${channel}/${iconName}.png"
     '';
 
   passthru = {
