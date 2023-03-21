@@ -1,6 +1,12 @@
 name: "Home Manager import"
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   home-manager-build:
@@ -30,7 +36,9 @@ jobs:
         run: nix-shell 'https://github.com/nix-community/home-manager/archive/${{ matrix.pairs.branch }}.tar.gz' -A install
 
       - name: Copy configuration file
-        run: cp -f .github/home-manager.nix /home/runner/.config/nixpkgs/home.nix
+        run: |
+          mkdir -p $XDG_CONFIG_HOME/home-manager
+          cp -f .github/home-manager.nix $XDG_CONFIG_HOME/home-manager/home.nix
 
       - name: Rebuild Home Manager configuration
         run: home-manager switch --show-trace
