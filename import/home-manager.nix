@@ -37,6 +37,6 @@ in {
     file.".drirc".source = lib.mkIf (cfg.enableGpuFix) drirc;
 
     # Force VA Driver
-    sessionVariables.LIBVA_DRIVER_NAME = cfg.forceDriver;
+    sessionVariables.LIBVA_DRIVER_NAME = toString cfg.forceDriver;
   };
 }
