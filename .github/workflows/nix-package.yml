@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         channel:
-          - nixos-22.05
+          - nixos-22.11
           - nixos-unstable
     env:
       NIXPKGS_ALLOW_UNFREE: 1
