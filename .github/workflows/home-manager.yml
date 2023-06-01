@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         pairs:
-          - branch: release-22.11
-            channel: nixos-22.11
+          - branch: release-23.05
+            channel: nixos-23.05
           - branch: master
             channel: nixos-unstable
     env:

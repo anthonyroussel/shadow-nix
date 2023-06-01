@@ -7,8 +7,8 @@ in {
     (repository + "/import/home-manager.nix")
   ];
   home = {
-    username = "shadow";
-    homeDirectory = "/home/shadow";
-    stateVersion = "22.11";
+    username = "runner";
+    homeDirectory = "/home/runner";
+    stateVersion = "23.05";
   };
 }
