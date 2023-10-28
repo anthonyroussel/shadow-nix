@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
 let
   cfg = config.programs.shadow-client;
   provideSession = cfg.x-session.enable || cfg.systemd-session.enable;
