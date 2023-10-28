@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
 {
   options.programs.shadow-client.x-session = {
-    enable = mkOption {
-      type = types.bool;
+    enable = lib.mkOption {
+      type = lib.types.bool;
       default = false;
       example = true;
       description = ''
@@ -14,7 +12,7 @@ with lib;
       '';
     };
 
-    additionalMenuEntries = mkOption {
+    additionalMenuEntries = lib.mkOption {
       default = { };
       example = ''{ "myProgram" = "myProgramCommand"; }'';
       description = ''
@@ -22,8 +20,8 @@ with lib;
       '';
     };
 
-    startScript = mkOption {
-      type = types.str;
+    startScript = lib.mkOption {
+      type = lib.types.str;
       default = "";
       example = "tint2 &";
       description = ''

@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
 {
   options.programs.shadow-client.systemd-session = {
-    enable = mkOption {
-      type = types.bool;
+    enable = lib.mkOption {
+      type = lib.types.bool;
       default = false;
       example = true;
       description = ''
@@ -13,8 +11,8 @@ with lib;
       '';
     };
 
-    user = mkOption {
-      type = types.str;
+    user = lib.mkOption {
+      type = lib.types.str;
       default = "";
       example = "myself";
       description = ''
@@ -22,8 +20,8 @@ with lib;
       '';
     };
 
-    tty = mkOption {
-      type = types.int;
+    tty = lib.mkOption {
+      type = lib.types.int;
       default = 8;
       example = 1;
       description = ''
@@ -31,8 +29,8 @@ with lib;
       '';
     };
 
-    onClosingTty = mkOption {
-      type = types.nullOr types.int;
+    onClosingTty = lib.mkOption {
+      type = lib.types.nullOr lib.types.int;
       default = null;
       example = 1;
       description = ''

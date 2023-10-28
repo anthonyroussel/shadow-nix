@@ -8,8 +8,6 @@
 , provideSession ? false, channel ? "preprod"
 , launchArgs ? "" }:
 
-with lib;
-
 let
   sessionCommandWrapperSubCmd =
     writeShellScriptBin "shadow-${channel}-session-subcmd" ''
@@ -57,14 +55,14 @@ in symlinkJoin {
 
   name = "shadow-${channel}-${shadow-package.version}";
 
-  paths = [ shadow-package ] ++ (optional provideSession [
+  paths = [ shadow-package ] ++ (lib.optional provideSession [
     sessionCommandWrapper
     standaloneSessionCommandWrapper
   ]);
 
   nativeBuildInputs = [ makeWrapper ];
 
-  postBuild = optionalString provideSession ''
+  postBuild = lib.optionalString provideSession ''
     mkdir -p $out/share/xsessions
     substitute ${shadow-package}/opt/shadow-${channel}/${shadow-package.binaryName}.desktop \
       $out/share/xsessions/${shadow-package.binaryName}.desktop \

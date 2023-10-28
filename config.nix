@@ -1,15 +1,13 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
 {
   options.programs.shadow-client = {
-    enable = mkEnableOption ''
+    enable = lib.mkEnableOption ''
       Enable the client to the Shadow Gaming Cloud Computer on NixOS
     '';
 
-    channel = mkOption {
-      type = types.enum [ "prod" "preprod" "testing" ];
+    channel = lib.mkOption {
+      type = lib.types.enum [ "prod" "preprod" "testing" ];
       default = "prod";
       example = "preprod";
       description = ''
@@ -20,8 +18,8 @@ with lib;
       '';
     };
 
-    extraChannels = mkOption {
-      type = types.listOf (types.enum [ "prod" "preprod" "testing" ]);
+    extraChannels = lib.mkOption {
+      type = lib.types.listOf (lib.types.enum [ "prod" "preprod" "testing" ]);
       default = [ ];
       example = [ "preprod" "testing" ];
       description = ''
@@ -29,8 +27,8 @@ with lib;
       '';
     };
 
-    launchArgs = mkOption {
-      type = types.str;
+    launchArgs = lib.mkOption {
+      type = lib.types.str;
       default = "";
       example = "--report";
       description = ''
@@ -38,8 +36,8 @@ with lib;
       '';
     };
 
-    enableDesktopLauncher = mkOption {
-      type = types.bool;
+    enableDesktopLauncher = lib.mkOption {
+      type = lib.types.bool;
       default = true;
       example = false;
       description = ''
@@ -47,8 +45,8 @@ with lib;
       '';
     };
 
-    enableDiagnostics = mkOption {
-      type = types.bool;
+    enableDiagnostics = lib.mkOption {
+      type = lib.types.bool;
       default = false;
       example = true;
       description = ''
@@ -58,8 +56,8 @@ with lib;
       '';
     };
 
-    forceDriver = mkOption {
-      type = types.nullOr (types.enum [ "iHD" "i965" "radeon" "radeonsi" ]);
+    forceDriver = lib.mkOption {
+      type = lib.types.nullOr (lib.types.enum [ "iHD" "i965" "radeon" "radeonsi" ]);
       default = null;
       example = "iHD";
       description = ''
@@ -67,8 +65,8 @@ with lib;
       '';
     };
 
-    enableGpuFix = mkOption {
-      type = types.bool;
+    enableGpuFix = lib.mkOption {
+      type = lib.types.bool;
       default = true;
       example = false;
       description = ''
