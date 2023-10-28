@@ -14,9 +14,6 @@ let
     enableDesktopLauncher = cfg.enableDesktopLauncher;
   };
 
-  # Drirc file
-  drirc = utilities.files.drirc;
-
 in {
   # Import the configuration
   imports = [ ../config.nix ];
@@ -34,7 +31,7 @@ in {
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes
-    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) drirc;
+    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) ./.drirc;
 
     # Force VA Driver
     sessionVariables.LIBVA_DRIVER_NAME = toString cfg.forceDriver;
