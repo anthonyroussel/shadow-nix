@@ -17,3 +17,5 @@ jobs:
         with:
           release-type: simple
           package-name: shadow-nix
+          extra-files: |
+            README.md

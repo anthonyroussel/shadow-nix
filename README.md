@@ -35,14 +35,16 @@ Note that the ref value (`v*.*.*`) should point to the lastest release. Checkout
 
 If you want the latest package derivation, use `ref = "main"` instead.
 
+
 #### As a system package
 
 In your `configuration.nix` :
 
+<!-- x-release-please-start-version -->
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.3.2"; } + "/import/system.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.4.0"; } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
@@ -52,15 +54,17 @@ In your `configuration.nix` :
   };
 }
 ```
+<!---x-release-please-end-->
 
 #### As a home-manager package
 
 In your `home.nix` :
 
+<!-- x-release-please-start-version -->
 ```nix
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.3.2"; } + "/import/home-manager.nix")
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.4.0"; } + "/import/home-manager.nix")
   ];
 
   programs.shadow-client = {
@@ -70,6 +74,7 @@ In your `home.nix` :
   };
 }
 ```
+<!-- x-release-please-end -->
 
 ## 2. Configuration
 
