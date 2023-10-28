@@ -23,4 +23,5 @@ jobs:
       - uses: cachix/install-nix-action@v23
         with:
           nix_path: nixpkgs=channel:${{ matrix.channel }}
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
       - run: nix-shell .github/shadow-packages.nix
