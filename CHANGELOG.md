@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.4.0](https://github.com/anthonyroussel/shadow-nix/compare/v1.3.2...v1.4.0) (2023-10-28)
+
+
+### Features
+
+* **ci:** add release-please Github Action ([f3a9d1b](https://github.com/anthonyroussel/shadow-nix/commit/f3a9d1b683f62382778cb19f793249573a883c5d))
+* shadow-prod: 5.0.1161 -> 8.0.10164
+* shadow-preprod: 5.0.1158 -> 8.0.10175
+* shadow-testing: 5.0.1152 -> 8.0.10177
+* Build Shadow Nix with NixOS 22.11
+* Improve update script with Git commit messages
+
+
+### Bug Fixes
+
+* **changelog:** fix changelog format for release-please ([e364740](https://github.com/anthonyroussel/shadow-nix/commit/e36474008bb0b9606b53dc277aea568f2f227043))
+* Bump cachix/install-nix-action from 21 to 23
+* Bump actions/checkout from 3 to 4
+* Bump cachix/install-nix-action from 20 to 21
+* Build Shadow Nix with NixOS 23.05
+* Fix Home Manager CI
+* Bump cachix/install-nix-action from 18 to 20
+* Bump cachix/install-nix-action from 17 to 18
+* Fix deleted alsaLib package alias with unstable nixpkgs
+* Bump actions/checkout from 2 to 3
+* Clean default.nix
+
 ## [1.3.2](https://github.com/anthonyroussel/shadow-nix/compare/v1.3.1...v1.3.2)
 
 - prod: 5.0.1138 -> 5.0.1161 (#55)
