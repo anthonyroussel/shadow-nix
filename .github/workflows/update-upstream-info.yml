@@ -28,7 +28,7 @@ jobs:
           git checkout -b update-shadow-channels
 
       - name: Update Upstream information file
-        run: ./update.py --commit
+        run: ./packages/shadow-nix/update.py --commit
 
       - name: Push branch
         run: git push origin update-shadow-channels -f
