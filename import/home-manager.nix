@@ -4,9 +4,6 @@ let
   # Client configuration
   cfg = config.programs.shadow-client;
 
-  # A set of utilities
-  utilities = import ../utilities { inherit lib pkgs; };
-
   # Declare the package with the appropriate configuration
   shadow-package = channel: pkgs.callPackage ../default.nix {
     channel = channel;

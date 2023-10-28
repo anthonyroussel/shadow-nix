@@ -24,7 +24,7 @@
 
 let
   # Import tools
-  utilities = (import ./utilities { inherit lib pkgs; });
+  debug = (import ./debug.nix { inherit lib pkgs; });
 
   # Latest release information
   upstream-info = (lib.importJSON ./upstream-info.json).${channel};
@@ -138,7 +138,7 @@ in stdenv.mkDerivation rec {
     '' +
 
     # Add debug wrapper
-    lib.optionalString enableDiagnostics (utilities.debug.wrapRenderer channel) +
+    lib.optionalString enableDiagnostics (debug.wrapRenderer channel) +
 
     # Wrap renderer
     ''
