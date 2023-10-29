@@ -5,51 +5,44 @@ pkgs.testers.runNixOSTest ({ lib, ... }: {
 
   nodes.machine = { pkgs, ... }: {
     imports = [
+      ./x11.nix
       ../../modules/nixos/shadow-nix
     ];
-    services.acme-dns = {
+
+    # Provides the `vainfo` command
+    environment.systemPackages = with pkgs; [ libva-utils ];
+
+    # Hardware hybrid decoding
+    # nixpkgs.config.packageOverrides = pkgs: {
+    #   vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    # };
+
+    # Hardware drivers
+    hardware.opengl = {
       enable = true;
-      settings = {
-        general = rec {
-          domain = "acme-dns.home.arpa";
-          nsname = domain;
-          nsadmin = "admin.home.arpa";
-          records = [
-            "${domain}. A 127.0.0.1"
-            "${domain}. AAAA ::1"
-            "${domain}. NS ${domain}."
-          ];
-        };
-        logconfig.loglevel = "debug";
-      };
+      extraPackages = with pkgs; [
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+      ];
     };
-    environment.systemPackages = with pkgs; [ curl bind ];
+
+    programs.shadow-client = {
+      enable = true;
+      channel = "prod";
+    };
   };
 
+  # enableOCR = true;
+
   testScript = ''
-    import json
+    machine.wait_for_x()
 
-    machine.wait_for_unit("acme-dns.service")
-    machine.wait_for_open_port(53) # dns
-    machine.wait_for_open_port(8080) # http api
-
-    result = machine.succeed("curl --fail -X POST http://localhost:8080/register")
-    print(result)
-
-    registration = json.loads(result)
-
-    machine.succeed(f'dig -t TXT @localhost {registration["fulldomain"]} | grep "SOA" | grep "admin.home.arpa"')
-
-    # acme-dns exspects a TXT value string length of exactly 43 chars
-    txt = "___dummy_validation_token_for_txt_record___"
-
-    machine.succeed(
-      "curl --fail -X POST http://localhost:8080/update "
-      + f' -H "X-Api-User: {registration["username"]}"'
-      + f' -H "X-Api-Key: {registration["password"]}"'
-      + f' -d \'{{"subdomain":"{registration["subdomain"]}", "txt":"{txt}"}}\'''
-    )
-
-    assert txt in machine.succeed(f'dig -t TXT +short @localhost {registration["fulldomain"]}')
+    machine.execute("shadow-prod >&2 &")
+    # machine.wait_for_window("Shadow PC")
+    # machine.wait_for_text(r"(New Game|Start Server|Load Game|Help Manual|Join Game|About|Play Online)")
+    machine.sleep(10)
+    machine.screenshot("screen")
   '';
 })

@@ -28,7 +28,7 @@ in {
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes
-    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) ../.drirc;
+    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) ../../.drirc;
 
     # Force VA Driver
     sessionVariables.LIBVA_DRIVER_NAME = toString cfg.forceDriver;

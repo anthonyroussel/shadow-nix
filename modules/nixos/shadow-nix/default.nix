@@ -30,7 +30,7 @@ in {
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes
-    etc.drirc.source = lib.mkIf (cfg.enableGpuFix) ../.drirc;
+    etc.drirc.source = lib.mkIf (cfg.enableGpuFix) ../../.drirc;
 
     # Force VA Driver
     variables.LIBVA_DRIVER_NAME = lib.mkIf (cfg.forceDriver != null) [ cfg.forceDriver ];
