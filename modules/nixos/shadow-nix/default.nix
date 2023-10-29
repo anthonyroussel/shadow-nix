@@ -5,7 +5,8 @@ let
   cfg = config.programs.shadow-client;
 
   # Declare the package with the appropriate configuration
-  shadow-package = channel: pkgs.callPackage ../default.nix {
+  # shadow-package = channel: pkgs.callPackage ../default.nix {
+  shadow-package = channel: pkgs.callPackage ../../../packages/shadow-nix/default.nix {
     channel = channel;
     enableDiagnostics = cfg.enableDiagnostics;
     enableDesktopLauncher = cfg.enableDesktopLauncher;
@@ -13,24 +14,25 @@ let
 
 in {
   # Import the configuration
-  imports = [ ../config.nix ];
+  #  ./x-session ./systemd-session
+  imports = [ ../../config.nix ];
 
   # By default, if you import this file, the Shadow app will be installed
   programs.shadow-client.enable = lib.mkDefault true;
 
   # Enables
-  home = lib.mkIf cfg.enable {
+  environment = lib.mkIf cfg.enable {
     # Install Shadow wrapper
-    packages = with pkgs; [
+    systemPackages = with pkgs; [
       (shadow-package cfg.channel)
       libva-utils
       libva
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes
-    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) ./.drirc;
+    etc.drirc.source = lib.mkIf (cfg.enableGpuFix) ../../.drirc;
 
     # Force VA Driver
-    sessionVariables.LIBVA_DRIVER_NAME = toString cfg.forceDriver;
+    variables.LIBVA_DRIVER_NAME = lib.mkIf (cfg.forceDriver != null) [ cfg.forceDriver ];
   };
 }

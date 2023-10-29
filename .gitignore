@@ -1,3 +1,6 @@
 # IDE
 .vscode
 .idea
+
+# Exclude `nix build` output directory
+result

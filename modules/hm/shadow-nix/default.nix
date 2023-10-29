@@ -13,24 +13,24 @@ let
 
 in {
   # Import the configuration
-  imports = [ ../config.nix ../x-session ../systemd-session ];
+  imports = [ ../config.nix ];
 
   # By default, if you import this file, the Shadow app will be installed
   programs.shadow-client.enable = lib.mkDefault true;
 
   # Enables
-  environment = lib.mkIf cfg.enable {
+  home = lib.mkIf cfg.enable {
     # Install Shadow wrapper
-    systemPackages = with pkgs; [
+    packages = with pkgs; [
       (shadow-package cfg.channel)
       libva-utils
       libva
     ] ++ lib.forEach cfg.extraChannels shadow-package;
 
     # Add GPU fixes
-    etc.drirc.source = lib.mkIf (cfg.enableGpuFix) ./.drirc;
+    file.".drirc".source = lib.mkIf (cfg.enableGpuFix) ../../.drirc;
 
     # Force VA Driver
-    variables.LIBVA_DRIVER_NAME = lib.mkIf (cfg.forceDriver != null) [ cfg.forceDriver ];
+    sessionVariables.LIBVA_DRIVER_NAME = toString cfg.forceDriver;
   };
 }
