@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.0](https://github.com/anthonyroussel/shadow-nix/compare/v1.4.0...v1.5.0) (2023-11-23)
+
+
+### Features
+
+* **ci:** use magic-nix-cache-action to speed-up build ([b7952d6](https://github.com/anthonyroussel/shadow-nix/commit/b7952d6081f7f626611c560b73ee24bf3ba4ba98))
+* move .drirc file from blade-shadow-beta repository ([992dab6](https://github.com/anthonyroussel/shadow-nix/commit/992dab68826b5ce5dc23a116863d6178225d9657))
+
+
+### Bug Fixes
+
+* **ci:** change release-please to bump version in README.md ([d4a336b](https://github.com/anthonyroussel/shadow-nix/commit/d4a336b1d04bd907bc4bd94ea63b7d6ce838b92f))
+* remove utilities.{files,debug} and use debug.nix ([2a95c50](https://github.com/anthonyroussel/shadow-nix/commit/2a95c5047280be45af2893f5146802926b9f1891))
+
 ## [1.4.0](https://github.com/anthonyroussel/shadow-nix/compare/v1.3.2...v1.4.0) (2023-10-28)
 
 
