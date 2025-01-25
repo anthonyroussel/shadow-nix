@@ -1,17 +1,17 @@
 {
   "prod": {
-    "version": "9.9.10132",
+    "version": "9.9.10173",
     "files": [
       {
-        "url": "ShadowPC-9.9.10132.AppImage",
-        "sha512": "P6HHrYDAOh1k2pdproofCetv8p3P3hC4nDCQKzVNC9BmZlzL9cmgK/2LvoQV3d0A4Ejjqx0Wa1VdiLTCPXmohg==",
-        "size": 179301475,
-        "blockMapSize": 187511
+        "url": "ShadowPC-9.9.10173.AppImage",
+        "sha512": "XeLoEtJJ3iPp6VjGMo/w807JeVRgnLTx4rSNUyNpWAYhpIp0Fxn4EOe4VniVdnqaVTqwv8oswlY68YQHTuKXiQ==",
+        "size": 179301449,
+        "blockMapSize": 187485
       }
     ],
-    "path": "ShadowPC-9.9.10132.AppImage",
-    "sha512": "P6HHrYDAOh1k2pdproofCetv8p3P3hC4nDCQKzVNC9BmZlzL9cmgK/2LvoQV3d0A4Ejjqx0Wa1VdiLTCPXmohg==",
-    "releaseDate": "2024-11-04T15:10:03.903Z"
+    "path": "ShadowPC-9.9.10173.AppImage",
+    "sha512": "XeLoEtJJ3iPp6VjGMo/w807JeVRgnLTx4rSNUyNpWAYhpIp0Fxn4EOe4VniVdnqaVTqwv8oswlY68YQHTuKXiQ==",
+    "releaseDate": "2025-01-24T10:06:14.053Z"
   },
   "preprod": {
     "version": "9.9.10169",
