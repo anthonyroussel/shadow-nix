@@ -14,18 +14,18 @@
     "releaseDate": "2026-01-09T17:07:36.792Z"
   },
   "preprod": {
-    "version": "9.9.10353",
+    "version": "9.9.10488",
     "files": [
       {
-        "url": "ShadowPCBeta-9.9.10353.AppImage",
-        "sha512": "MnD2H6NwNJZnaui+BoDj4INKQysNndz+Go0+kgDUgm+qqyhr+EQA/iyLIj9NPVpWCwO3hi+JGoSwZdux5BP2iQ==",
-        "size": 253843088,
-        "blockMapSize": 263844
+        "url": "ShadowPCBeta-9.9.10488.AppImage",
+        "sha512": "uZ8KB7Zrt1Ud1tTiyzCgN+kvBFuX9BvzeIEtG1LlgrP4vF2S9uR8TvF0+Kgtpurj1gYbt0cco2mjbtHwtwmRhA==",
+        "size": 288593523,
+        "blockMapSize": 300679
       }
     ],
-    "path": "ShadowPCBeta-9.9.10353.AppImage",
-    "sha512": "MnD2H6NwNJZnaui+BoDj4INKQysNndz+Go0+kgDUgm+qqyhr+EQA/iyLIj9NPVpWCwO3hi+JGoSwZdux5BP2iQ==",
-    "releaseDate": "2026-01-07T08:42:42.036Z"
+    "path": "ShadowPCBeta-9.9.10488.AppImage",
+    "sha512": "uZ8KB7Zrt1Ud1tTiyzCgN+kvBFuX9BvzeIEtG1LlgrP4vF2S9uR8TvF0+Kgtpurj1gYbt0cco2mjbtHwtwmRhA==",
+    "releaseDate": "2026-10-13T07:46:30.584Z"
   },
   "testing": {
     "version": "9.9.10479",
